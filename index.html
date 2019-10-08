@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>飞机大作战之无限火力</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body data-status="index">
+  <canvas id="game"></canvas>
+  <div class="ui-index">
+    <h1>飞机大作战<br><span>之</span><span>无限火力</span></h1>
+    <div class="btn-group">
+      <button class="js-start btn">开始游戏</button>
+      <button class="js-setting btn">游戏设置</button>
+      <button class="js-rule btn">游戏说明</button>
+      <button class="js-board btn">排行榜</button>
+    </div>
+  </div>
+  <div class="ui-choice">
+    <h2>请选择您的战机</h2>
+    <ul>
+      <li id="plane1" class="js-plane1"></li>
+      <li id="plane2" class="js-plane2"></li>
+      <li id="plane3" class="js-plane3"></li>
+    </ul>
+    <ol>
+      <li>雷电</li>
+      <li>粉红豹</li>
+      <li>幻影2000</li>
+    </ol>
+  </div>
+  <div id="playingUI">
+
+    <div class="energySlot">
+      <span class="energyText">100/100</span>
+      <div class="line"></div>
+      <div class="edelayColor"></div>
+      <div class="energySlot-in" id="slot"></div>
+    </div>
+    <div class="lifeSlot">
+      <span class="lifeText">100/100</span>
+      <div class="ldelayColor"></div>
+      <div class="lifeSlot-in"></div>
+    </div>
+    <div class="energyUse" id="eUse"></div>
+    <div class="planeStatus">
+      <div class="pSCooldown"></div>
+    </div>
+  </div>
+
+  <div class="ui-rule ui-panel">
+    <h2>游戏说明</h2>
+    <p>通过手指移动飞机，击杀敌人获得分数，随着分数的增加，敌人越来越强，你的能力也越来越强！分数达到100000你就胜利了！</p>
+    <button class="js-confirm-rule">我知道了</button>
+  </div>
+  <div class="ui-setting ui-panel">
+    <h2>游戏设置</h2>
+    <ul class="setting-group">
+      <li class="setting">
+        <span class="setting-title">音乐设置</span>
+        <select id="setting-music">
+          <option value="1">开启音乐</option>
+          <option value="0">关闭音乐</option>
+        </select>
+      </li>
+      <li class="setting">
+        <span class="setting-title">背景设置</span>
+        <select id="setting-bg">
+          <option value="1">夜袭基地</option>
+          <option value="2">迷失古迹</option>
+          <option value="3">原始森林</option>
+          <option value="4">爆裂火山</option>
+        </select>
+      </li>
+      <li class="setting">
+        <span class="setting-title">战机设置</span>
+        <select id="setting-plane">
+          <option value="bluePlaneIcon">蓝色战机</option>
+          <option value="pinkPlaneIcon">粉红战机</option>
+        </select>
+      </li>
+    </ul>
+    <button class="js-confirm-setting">确认设置</button>
+  </div>
+  <div class="ui-board ui-panel">
+    <h2>排行榜</h2>
+    <ol id="board-index">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ol>
+    <button class="js-confirm-board">确定</button>
+  </div>
+  <div class="ui-dead ui-panel">
+    <h2>你已死亡！</h2>
+    <p>胜败乃兵家常事，请大侠重新来过！</p>
+    <p>获得分数：<span id="getScore" style="color:red;font-weight:bold;"></span></p>
+    <p>排行榜</p>
+    <ol id="board">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ol>
+    <button class="js-dead">重新开始</button>
+  </div>
+  <div class="ui-win ui-panel">
+    <h2>胜利！</h2>
+    <p>前端统治世界！</p>
+    <button class="js-win">再来一局</button>
+  </div>
+  <audio id='bGM'>
+    <source src="sound/music.mp3" type="audio/mpeg">
+  </audio>
+  <audio id='biu'>
+    <source src="sound/biubiubiu.mp3" type="audio/mpeg">
+  </audio>
+  <audio id='boomM'>
+    <source src="sound/boom.mp3" type="audio/mpeg">
+  </audio>
+  <audio id='buttonM'>
+    <source src="sound/button.mp3" type="audio/mpeg">
+  </audio>
+  <audio id='die'>
+    <source src="sound/die.mp3" type="audio/mpeg">
+  </audio>
+  <audio id='boss'>
+    <source src="sound/BOSS.mp3" type="audio/mpeg">
+  </audio>
+  <!-- 页面 js -->
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/resource.js"></script>
+  <script src="js/element.js"></script>
+  <script src="js/bullet.js"></script>
+  <script src="js/laser.js"></script>
+  <script src="js/enemy.js"></script>
+  <script src="js/items.js"></script>
+  <script src="js/plane.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

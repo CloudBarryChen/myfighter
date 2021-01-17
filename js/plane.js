@@ -223,7 +223,6 @@ Plane.prototype.hasHitLaser = function (target) {
     // 清除子弹实例
     hasHit = true;
     return hasHit;
-    break;
   }
 };
 

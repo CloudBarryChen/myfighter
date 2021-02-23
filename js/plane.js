@@ -118,7 +118,8 @@ Plane.prototype.startShoot = function (offset) {
       let bulletY = self.y - bulletHeight;
       //音效
       if (window.musicControl === '1') {
-        GAME.biu.play();
+        // GAME.biu.play();
+        AUDIOS.plane.blue.shoot();
       }
 
       // 创建子弹
